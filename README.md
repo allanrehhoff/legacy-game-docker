@@ -2,7 +2,7 @@
   
 Local development environment containerized using Docker.  
 
-Clone this repository and run `$ ocker-compose up` to start the development server.  
+Clone this repository and run `$ docker-compose up` to start the development server.  
 
 In addition to this consult the documentation found at codebase.com.
 
@@ -12,6 +12,8 @@ To import a copy of the database during `docker-compose` place the following fil
 * legacy_gamedata.sql
 * legacy_globaldata.sql
 * legacy_tempdb.sql
+
+You can also manually import .sql files using the bundled phpmyadmin container if so preffered.
 
 ## PHPMyAdmin
 
