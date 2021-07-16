@@ -1,16 +1,18 @@
 FROM mysql:5.7.34
 
-# DATABASE FILES
-# COPY ./sql/legacy_gamedata.sql /usr/sql/legacy_gamedata.sql
-# COPY ./sql/legacy_globaldata.sql /usr/sql/legacy_globaldata.sql
-# COPY ./sql/legacy_tempdb.sql /usr/sql/legacy_tempdb.sql
-
 COPY ./sql/legacy_gamedata.sql /docker-entrypoint-initdb.d/legacy_gamedata.sql
 COPY ./sql/legacy_globaldata.sql /docker-entrypoint-initdb.d/legacy_globaldata.sql
 COPY ./sql/legacy_tempdb.sql /docker-entrypoint-initdb.d/legacy_tempdb.sql
 
+COPY ./conf/my.cnf /etc/mysql/conf.d
+
 # START MYSQL
 RUN /etc/init.d/mysql start
+
+# DATABASE FILES
+# COPY ./sql/legacy_gamedata.sql /usr/sql/legacy_gamedata.sql
+# COPY ./sql/legacy_globaldata.sql /usr/sql/legacy_globaldata.sql
+# COPY ./sql/legacy_tempdb.sql /usr/sql/legacy_tempdb.sql
 
 # IMPORT CONTENTS
 # RUN mysql --host mysqldb --port 3306 --user ${MYSQL_ROO_USER} -p${MYSQL_ROOT_PASSWORD} legacy_gamedata < /usr/sql/legacy_gamedata.sql
