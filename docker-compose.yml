@@ -12,6 +12,7 @@ services:
     environment:
       - VIRTUAL_HOST=legacy.localdev,portal.legacy.localdev,staff.legacy.localdev
   mysql:
+    platform: linux/x86_64
     container_name: "mysqldb"
     build:
       context: './mysql'
