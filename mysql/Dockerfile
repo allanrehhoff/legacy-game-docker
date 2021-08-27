@@ -1,8 +1,8 @@
 FROM mysql:5.7.34
 
-COPY ./sql/legacy_gamedata.sql /docker-entrypoint-initdb.d/legacy_gamedata.sql
-COPY ./sql/legacy_globaldata.sql /docker-entrypoint-initdb.d/legacy_globaldata.sql
-COPY ./sql/legacy_tempdb.sql /docker-entrypoint-initdb.d/legacy_tempdb.sql
+# COPY ./sql/legacy_gamedata.sql /docker-entrypoint-initdb.d/legacy_gamedata.sql
+# COPY ./sql/legacy_globaldata.sql /docker-entrypoint-initdb.d/legacy_globaldata.sql
+# COPY ./sql/legacy_tempdb.sql /docker-entrypoint-initdb.d/legacy_tempdb.sql
 
 COPY ./conf/my.cnf /etc/mysql/conf.d
 
