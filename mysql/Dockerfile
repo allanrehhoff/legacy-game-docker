@@ -7,7 +7,8 @@ FROM mysql:5.7.34
 COPY ./conf/my.cnf /etc/mysql/conf.d
 
 # START MYSQL
-RUN /etc/init.d/mysql start
+RUN /etc/init.d/mysql start \
+&& mysql --user root -ppassword -e "GRANT ALL ON mysql.* to 'root'@'%' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;"
 
 # DATABASE FILES
 # COPY ./sql/legacy_gamedata.sql /usr/sql/legacy_gamedata.sql
