@@ -1,5 +1,6 @@
 services:
   php-apache:
+    restart: always
     build:
       context: './php-apache'
     ports:
